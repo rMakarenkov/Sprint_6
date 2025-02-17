@@ -1,7 +1,5 @@
-import datetime
-
 from pages.order_page import OrderPage
-from helper import Helper
+
 
 def test_one(driver):
     order_page = OrderPage(driver)

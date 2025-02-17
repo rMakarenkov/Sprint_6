@@ -32,4 +32,3 @@ class BasePage:
         except Exception as e:
             print(f"\nAn error occurred while finding the visability element: {e}")
             return None
-

@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from helper import Helper
 
 class OrderPageLocators:
     # first step
@@ -14,7 +15,7 @@ class OrderPageLocators:
     # second step
     INPUT_WHEN_DATE = (By.XPATH, '//input[@placeholder="* Когда привезти самокат"]')
     DATA_PICKER = (By.CSS_SELECTOR, '.react-datepicker__month-container')
-    CURRENT_DATE = (By.XPATH, '//div[text()="18"]')
+    CURRENT_DATE = (By.XPATH, f'//div[text()="{Helper.prepare_current_day()}"]')
     INPUT_RENTAL_PERIOD = (By.XPATH, '//div[text()="* Срок аренды"]')
     LABEL_RENTAL_PERIOD_DAY = (By.XPATH, '//div[text()="сутки"]')
     CHECKBOX_BLACK_SCOOTER = (By.XPATH, '//input[@id="black"]')
