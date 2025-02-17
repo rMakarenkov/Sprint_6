@@ -1,6 +1,5 @@
-from selenium.webdriver.common.by import By
+
 from locators.order_page_locators import OrderPageLocators
-import time
 from pages.base_page import BasePage
 
 
