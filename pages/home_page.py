@@ -16,7 +16,7 @@ class HomePage(BasePage):
         else:
             return False
 
-    @allure.step('Скролим страницу до кнопки "Заказать" на главной странице')
+    @allure.step('Скроллим страницу до кнопки "Заказать" на главной странице')
     def scroll_to_order_button_on_home_page(self):
         self.scroll_to_element(*HomePageLocators.BUTTON_ORDER_ON_HOME_PAGE)
 
@@ -24,13 +24,13 @@ class HomePage(BasePage):
     def click_on_the_order_button_on_home_page(self):
         self.find_visability_element(*HomePageLocators.BUTTON_ORDER_ON_HOME_PAGE).click()
 
-    @allure.step('Получаем текст ответа в соответствии с номером вопроса')
+    @allure.step('Получаем текст ответа в соответствии с номером вопроса {question_number} на главной странице')
     def get_answer_text_on_home_page(self, question_number):
         try:
             button_question_locator = getattr(HomePageLocators, f'BUTTON_QUESTION_{question_number}')
             label_answer_locator = getattr(HomePageLocators, f'LABEL_ANSWER_{question_number}')
             self.scroll_to_element(*button_question_locator)
-            self.find_clickabile_element(*button_question_locator).click()
+            self.find_clickable_element(*button_question_locator).click()
             return self.find_visability_element(*label_answer_locator).text
 
         except TimeoutException:
