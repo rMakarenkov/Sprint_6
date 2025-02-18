@@ -32,15 +32,23 @@ class OrderPage(BasePage):
         self.find_visability_element(*OrderPageLocators.DATA_PICKER)
         self.find_clickabile_element(*OrderPageLocators.CURRENT_DATE).click()
 
-    def set_rental_period(self):
+    def set_rental_period(self, rental_period):
         self.find_clickabile_element(*OrderPageLocators.INPUT_RENTAL_PERIOD).click()
-        self.find_clickabile_element(*OrderPageLocators.LABEL_RENTAL_PERIOD_DAY).click()
+        match rental_period:
+            case 1:
+                self.find_clickabile_element(*OrderPageLocators.LABEL_RENTAL_PERIOD_DAY).click()
+            case 7:
+                self.find_clickabile_element(*OrderPageLocators.LABEL_RENTAL_PERIOD_MAX_DAYS).click()
 
-    def set_color_scooter(self):
-        self.find_clickabile_element(*OrderPageLocators.CHECKBOX_BLACK_SCOOTER).click()
+    def set_color_scooter(self, color):
+        match color:
+            case 'black':
+                self.find_clickabile_element(*OrderPageLocators.CHECKBOX_BLACK_SCOOTER).click()
+            case 'grey':
+                self.find_clickabile_element(*OrderPageLocators.CHECKBOX_GREY_SCOOTER).click()
 
-    def set_comment_by_courier(self, comment):
-        self.find_clickabile_element(*OrderPageLocators.INPUT_COMMENT_BY_COURIER).send_keys(comment)
+    def set_comment_by_courier(self, comment_by_courier):
+        self.find_clickabile_element(*OrderPageLocators.INPUT_COMMENT_BY_COURIER).send_keys(comment_by_courier)
 
     def go_to_third_step_placing_order(self):
         self.find_clickabile_element(*OrderPageLocators.BUTTON_ORDER).click()
@@ -48,7 +56,10 @@ class OrderPage(BasePage):
     def order_confirmation(self):
         self.find_clickabile_element(*OrderPageLocators.BUTTON_YES).click()
 
-    def create_order(self, name, surname, address, telephone_number, comment_by_courier):
+    def go_to_order_detail(self):
+        self.find_clickabile_element(*OrderPageLocators.BUTTON_CHECK_DETAIL).click()
+
+    def create_order(self, name, surname, address, telephone_number, rental_period, color, comment_by_courier):
         self.set_name(name)
         self.set_surname(surname)
         self.set_address(address)
@@ -56,8 +67,8 @@ class OrderPage(BasePage):
         self.set_telephone_number(telephone_number)
         self.go_to_second_step_placing_order()
         self.set_date_order()
-        self.set_rental_period()
-        self.set_color_scooter()
+        self.set_rental_period(rental_period)
+        self.set_color_scooter(color)
         self.set_comment_by_courier(comment_by_courier)
         self.go_to_third_step_placing_order()
         self.order_confirmation()

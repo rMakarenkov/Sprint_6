@@ -18,11 +18,15 @@ class OrderPageLocators:
     CURRENT_DATE = (By.XPATH, f'//div[text()="{Helper.prepare_current_day()}"]')
     INPUT_RENTAL_PERIOD = (By.XPATH, '//div[text()="* Срок аренды"]')
     LABEL_RENTAL_PERIOD_DAY = (By.XPATH, '//div[text()="сутки"]')
+    LABEL_RENTAL_PERIOD_TWO_DAYS = (By.XPATH, '//div[text()="двое суток"]')
+    LABEL_RENTAL_PERIOD_MAX_DAYS = (By.XPATH, '//div[text()="семеро суток"]')
     CHECKBOX_BLACK_SCOOTER = (By.XPATH, '//input[@id="black"]')
+    CHECKBOX_GREY_SCOOTER = (By.XPATH, '//input[@id="grey"]')
     INPUT_COMMENT_BY_COURIER = (By.XPATH, '//input[@placeholder="Комментарий для курьера"]')
     BUTTON_ORDER = (By.XPATH, '//button[text()="Заказать" and @class="Button_Button__ra12g Button_Middle__1CSJM"]')
     # third step
-    LABEL_WANT_PLACE_ORDER =  (By.XPATH, '//div[text()="Хотите оформить заказ?"]')
+    LABEL_WANT_PLACE_ORDER = (By.XPATH, '//div[text()="Хотите оформить заказ?"]')
     BUTTON_YES = (By.XPATH, '//button[text()="Да"]')
     # modal window
     LABEL_SUCCESS_ORDER = (By.XPATH, '//div[text()="Заказ оформлен"]')
+    BUTTON_CHECK_DETAIL = (By.XPATH, '//button[text()="Посмотреть статус"]')
