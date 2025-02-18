@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from helper import Helper
 
+
 class OrderPageLocators:
     # first step
     LABEL_FROM_WHOM_SCOOTER = (By.XPATH, '//div[text()="Для кого самокат"]')

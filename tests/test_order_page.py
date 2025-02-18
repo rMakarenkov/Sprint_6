@@ -1,13 +1,15 @@
-import time
-
 import credentials
+import pytest
+import allure
 
 from pages.order_page import OrderPage
 from pages.home_page import HomePage
 
 
+@pytest.mark.order_page
 class TestOrderPage:
-
+    @allure.title('Проверка возможности формирования заказа через кнопку "Заказать" в header с последующим'
+                  ' переходом на главную страницу')
     def test_create_order_through_button_in_header_and_transition_home_page_successfully_operations(self, driver):
         order_page = OrderPage(driver)
         order_page.open(credentials.URLS.get('HOME_URL'))
@@ -22,6 +24,8 @@ class TestOrderPage:
 
         assert home_page.home_page_tittle_is_present()
 
+    @allure.title('Проверка возможности формирования заказа через кнопку "Заказать" на главной странице с последующим'
+                  ' редиректом на страницу dzen')
     def test_create_order_through_button_on_main_page_and_transition_dzen_page_successfully_operations(self, driver):
         home_page = HomePage(driver)
         home_page.open(credentials.URLS.get('HOME_URL'))
