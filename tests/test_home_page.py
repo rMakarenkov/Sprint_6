@@ -14,6 +14,6 @@ class TestHomePage:
         home_page = HomePage(driver)
         home_page.open(credentials.URLS.get('HOME_URL'))
         actual_text = home_page.get_answer_text_on_home_page(number)
-        expected_text = credentials.EXPECTED_ANSERS.get(number)
+        expected_text = credentials.EXPECTED_ANSWERS.get(number)
 
-        assert Helper.compare_act_and_exp_answers(actual_text, expected_text)
+        assert Helper.compare_act_and_exp_text(actual_text, expected_text), 'Actual answer not match expected answer'

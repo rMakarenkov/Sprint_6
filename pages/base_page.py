@@ -66,7 +66,7 @@ class BasePage:
             self.find_clickable_element(*BasePageLocators.LOGO_YANDEX).click()
             all_tabs = self.driver.window_handles
             self.driver.switch_to.window(all_tabs[-1])
-            return WebDriverWait(self.driver, self.timeout).until(EC.url_to_be(credentials.URLS.get('DZEN_URL')))
+            return WebDriverWait(self.driver, timeout=20).until(EC.url_to_be(credentials.URLS.get('DZEN_URL')))
 
         except TimeoutException:
             print(f"Timeout: URL did not match {credentials.URLS.get('DZEN_URL')} after {self.timeout} seconds.")

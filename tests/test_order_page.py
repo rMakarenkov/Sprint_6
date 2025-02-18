@@ -4,6 +4,7 @@ import allure
 
 from pages.order_page import OrderPage
 from pages.home_page import HomePage
+from helper import Helper
 
 
 @pytest.mark.order_page
@@ -38,4 +39,5 @@ class TestOrderPage:
         order_page.go_to_order_detail()
         order_page.click_on_the_yandex_logo_in_header_and_switch_window()
 
-        assert order_page.driver.current_url == credentials.URLS.get('DZEN_URL'), 'URL"s not matches'
+        assert Helper.compare_act_and_exp_text(order_page.driver.current_url,
+                                               credentials.URLS.get('DZEN_URL')), 'URL"s not matches'

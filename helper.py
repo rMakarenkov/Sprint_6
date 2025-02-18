@@ -14,9 +14,9 @@ class Helper:
             return current_day
 
     @staticmethod
-    @allure.step('Производим сравнение actual_answer: {actual_answer} и expected_answer: {expected_answer}')
-    def compare_act_and_exp_answers(actual_answer, expected_answer):
-        if actual_answer.__eq__(expected_answer):
+    @allure.step('Производим сравнение actual_text: {actual_text} и expected_text: {expected_text}')
+    def compare_act_and_exp_text(actual_text, expected_text):
+        if actual_text.__eq__(expected_text):
             return True
         else:
             return False
